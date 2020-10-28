@@ -23,6 +23,9 @@ const { auth } = require("./configs/auth.js");
 //OTHER IMPORTS
 const morgan = require("morgan");
 
+//MONGO
+const mongoose = require('./DB/connect');
+
 ////////////
 //MIDDLEWARE
 ////////////
