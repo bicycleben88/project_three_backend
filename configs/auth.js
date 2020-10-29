@@ -10,6 +10,7 @@ const verifyUser = (payload) => {
 //this function is passed in your JWT secret returns the auth middleware so to use it would be app.use(auth(SECRET)) or app.get('/', auth(), (req, res) => {})
 const auth = (secret) => {
   return (req, res, next) => {
+    console.log(req.headers)
     try {
       if (req.headers.authorization) {
         const token = req.headers.authorization.split(" ")[1];
