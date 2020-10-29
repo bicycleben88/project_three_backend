@@ -44,7 +44,7 @@ app.get("/", (req, res)=>{
    res.send("Hello")
 })
 //AUTH ROUTES
-app.use('/auth', userRouter)
+app.use('/auth', userRouter);
 app.get("/testauth", auth(SECRET), (req, res) => { //tests the auth middleware
     res.json(req.payload);
   });
@@ -53,6 +53,9 @@ app.get("/testjwt", (req, res) => { //confirms that jwt was made
   res.json({ token });
 });
 
+//RECIPE ROUTES
+const recipeRouter = require('./controllers/recipe');
+app.use('/recipe', recipeRouter);
 
 //Server listening to PORT
 app.listen(PORT, () => {
