@@ -43,16 +43,15 @@ app.use(morgan("tiny")); //logging
 app.get("/", (req, res)=>{
    res.send("Hello")
 })
+//AUTH ROUTES
 app.use('/auth', userRouter)
-// //These routes are to generate a test JWT and test out your auth function from auth.js
-// app.get("/testauth", auth(SECRET), (req, res) => {
-//     res.json(req.payload);
-//   });
-  
-//   app.get("/testjwt", (req, res) => {
-//     const token = jwt.sign({ hello: "world" }, SECRET);
-//     res.json({ token });
-//   });
+app.get("/testauth", auth(SECRET), (req, res) => { //tests the auth middleware
+    res.json(req.payload);
+  });
+app.get("/testjwt", (req, res) => { //confirms that jwt was made
+  const token = jwt.sign({ hello: "world" }, SECRET); 
+  res.json({ token });
+});
 
 
 //Server listening to PORT
