@@ -17,8 +17,11 @@ const express = require("express");
 const app = express();
 
 //AUTH
+const userRouter = require('./controllers/user')
 const jwt = require("jsonwebtoken");
 const { auth } = require("./configs/auth.js");
+
+
 
 //OTHER IMPORTS
 const morgan = require("morgan");
@@ -40,7 +43,7 @@ app.use(morgan("tiny")); //logging
 app.get("/", (req, res)=>{
    res.send("Hello")
 })
-
+app.use('/auth', userRouter)
 // //These routes are to generate a test JWT and test out your auth function from auth.js
 // app.get("/testauth", auth(SECRET), (req, res) => {
 //     res.json(req.payload);
