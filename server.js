@@ -53,6 +53,9 @@ app.get("/testjwt", (req, res) => { //confirms that jwt was made
   res.json({ token });
 });
 
+//RECIPE ROUTES
+const recipeRouter = require('./controllers/recipe');
+app.use('/recipe', recipeRouter);
 
 //Server listening to PORT
 app.listen(PORT, () => {

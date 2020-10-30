@@ -12,6 +12,10 @@ const {SECRET} = process.env;
 //----------------
 //Routes
 //----------------
+//Index
+router.get('/', async (req, res) => {
+    res.json(await User.find({}));
+})  
 //Sign Up
 router.post('/signup', async (req, res) => {
     try {
