@@ -19,7 +19,7 @@ const app = express();
 //AUTH
 const userRouter = require('./controllers/user')
 const jwt = require("jsonwebtoken");
-const { auth } = require("./configs/auth.js");
+// const { auth } = require("./configs/auth.js");
 
 
 
@@ -44,8 +44,9 @@ app.get("/", (req, res)=>{
    res.send("Hello")
 })
 //AUTH ROUTES
+const auth = require('./configs/auth');
 app.use('/auth', userRouter)
-app.get("/testauth", auth(SECRET), (req, res) => { //tests the auth middleware
+app.get("/testauth", auth, (req, res) => { //tests the auth middleware
     res.json(req.payload);
   });
 app.get("/testjwt", (req, res) => { //confirms that jwt was made
