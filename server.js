@@ -44,7 +44,7 @@ app.get("/", (req, res)=>{
    res.send("Hello")
 })
 //AUTH ROUTES
-app.use('/auth', userRouter);
+app.use('/auth', userRouter)
 app.get("/testauth", auth(SECRET), (req, res) => { //tests the auth middleware
     res.json(req.payload);
   });
