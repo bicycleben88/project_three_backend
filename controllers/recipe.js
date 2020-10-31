@@ -20,7 +20,18 @@ router.put("/:id", auth, async (req, res) => {
 
 //CREATE ROUTE
 router.post("/", auth, async (req, res) => {
-  res.json(await Recipe.create(req.body));
+  console.log("*************")
+  console.log(req.body)
+  console.log("*************")
+  const {drinkName, ingredients, instructions, username} = req.body
+
+  const recipeData = {
+    name: drinkName,
+    username: username,
+    ingredient: ingredients.join(', '),
+    instructions: instructions
+  }
+  res.json(await Recipe.create(recipeData));
 });
 
 //EXPORT ROUTER

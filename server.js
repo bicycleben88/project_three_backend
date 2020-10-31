@@ -38,6 +38,13 @@ app.use(express.json());
 app.use(morgan("tiny")); //logging
 
 ////////////////////
+// Body Parcers
+///////////////////
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+////////////////////
 //ROUTES AND ROUTERS
 ////////////////////
 app.get("/", (req, res)=>{
