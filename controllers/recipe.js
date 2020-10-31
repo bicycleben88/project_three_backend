@@ -4,7 +4,7 @@ const { Router } = require("express");
 const router = Router();
 
 //INDEX ROUTE
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   res.json(await Recipe.find({}))
 });
 
