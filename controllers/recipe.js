@@ -23,13 +23,13 @@ router.post("/", auth, async (req, res) => {
   console.log("*************")
   console.log(req.body)
   console.log("*************")
-  const {drinkName, ingredients, instructions, username} = req.body
-
+  const { drink}  = req.body
+  console.log(`ingredients:${drink.ingredients}`)
   const recipeData = {
-    name: drinkName,
-    username: username,
-    ingredient: ingredients.join(', '),
-    instructions: instructions
+    name: drink.drinkName,
+    username: "drink.username",
+    ingredient: drink.ingredients.join(', '),
+    instructions: drink.instructions
   }
   res.json(await Recipe.create(recipeData));
 });
